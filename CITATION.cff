@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+message: "Please use this citation when referring to the candidate-selection code."
+type: software
+title: "ECM1 ACL project"
+authors:
+  - family-names: "Cai"
+    given-names: "Wufeng"
+version: "1.0.0"
+license: MIT
+repository-code: "https://github.com/ciawufengmd/ecm1-acl-project"
+url: "https://github.com/ciawufengmd/ecm1-acl-project"
+abstract: >-
+  Python scripts for rebuilding Supplementary Tables CS1, CS3 and CS5
+  from saved network and expression estimates in a human anterior
+  cruciate ligament study. Input and reference tables are supplied
+  in Additional file 4.
+keywords:
+  - anterior cruciate ligament
+  - ECM1
+  - candidate selection
+  - reproducibility
