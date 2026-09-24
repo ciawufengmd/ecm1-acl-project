@@ -61,4 +61,4 @@ Human expression effects compare chronic with acute ACL tissue. Mouse effects co
 
 ## Availability
 
-The repository is currently private. No public release or reuse licence has been assigned. A public code-availability statement should be added to the manuscript after the release and data-access details have been confirmed.
+Source code is publicly available in this repository. The required candidate-selection input archive is supplied as Additional file 4 with the manuscript.
