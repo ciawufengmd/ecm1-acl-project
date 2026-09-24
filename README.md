@@ -62,3 +62,9 @@ Human expression effects compare chronic with acute ACL tissue. Mouse effects co
 ## Availability
 
 Source code is publicly available in this repository. The required candidate-selection input archive is supplied as Additional file 4 with the manuscript.
+
+## Licence and citation
+
+The software and its documentation are available under the MIT licence; see `LICENSE`. This licence does not change the terms applicable to source datasets or third-party material supplied in Additional file 4.
+
+Software citation metadata are provided in `CITATION.cff`, with Wufeng Cai as the code author.
