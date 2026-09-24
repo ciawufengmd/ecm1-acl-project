@@ -1,0 +1,46 @@
+{
+  "checked_at_utc": "2026-09-24T08:25:17.669265+00:00",
+  "python_version": "3.13.5",
+  "platform": "Linux-6.18.44-x86_64-with-glibc2.41",
+  "status": "passed",
+  "scope": "Checksum verification and reconstruction of candidate summaries from saved estimates",
+  "original_package_file_count": 21,
+  "package_verification": "PASS: 20 files match PACKAGE_MANIFEST.tsv.",
+  "outputs": [
+    {
+      "file": "Source_Data/CS1_Candidate35_topology.csv",
+      "byte_identical": true,
+      "sha256": "7325fc0d462fb0f97a35c94c175f08c0683d6c7ede026f8897c90cbe42feba69",
+      "data_rows": 35
+    },
+    {
+      "file": "Source_Data/CS3_Current35_summary.csv",
+      "byte_identical": true,
+      "sha256": "3f935f16fe3e210c91ba043d5f0986d105dc13294384f2ceb7d652d5017da3d6",
+      "data_rows": 35
+    },
+    {
+      "file": "Source_Data/CS5_Version_reconciliation.csv",
+      "byte_identical": true,
+      "sha256": "e0e35e2c32211d02dc020d44aa8d1be0c6893a7555f86dcdb7e67b7d1a163163",
+      "data_rows": 35
+    },
+    {
+      "file": "Audit/NUMERIC_QA.json",
+      "byte_identical": true,
+      "sha256": "a065db1dffc9d20f6634571884a02c9546d2b0b9d92b6e44d5fe34e2f5fe3ef7"
+    }
+  ],
+  "input_package_unchanged": true,
+  "current_joint_genes": [
+    "ECM1",
+    "P4HB",
+    "SEC61A1"
+  ],
+  "historical_joint_genes": [
+    "ECM1",
+    "P4HB"
+  ],
+  "models_refitted": false,
+  "p_values_or_fdr_recalculated": false
+}

@@ -1,60 +1,64 @@
-# ECM1 ACL candidate-selection data and code
+# ECM1 ACL candidate-selection code
 
-Saved network and expression estimates, with Python code to rebuild the candidate-selection summaries accompanying the manuscript **ECM1-associated matrix programmes characterise a POSTN/CTHRC1-expressing fibroblast state in human ACL**.
+Code for rebuilding Supplementary Tables **CS1, CS3 and CS5** from the saved network and expression estimates accompanying the ECM1 study in human anterior cruciate ligament (ACL).
 
-## Scope
+## Code and data
 
-The supplied scripts rebuild Supplementary Tables **CS1, CS3 and CS5** from saved CSV estimates. Inputs cover the 1,992-gene tissue network, 35 candidate genes, five expression comparisons per candidate, and candidate-rank summaries.
+This repository contains the reconstruction scripts, a non-destructive verification wrapper and the checksum manifest. The **12 CSV input and reference files are distributed in Additional file 4**, `ECM1_Candidate_Selection_Complete_Package.zip`, and have not been committed to this repository. Supply that archive to the command below.
 
-The upstream statistical analyses are described in the manuscript. This repository contains their candidate-level outputs and summary reconstruction, rather than the complete tissue-network, single-cell, enrichment or perturbation analysis pipeline. P values, FDR values and effect estimates are read from the supplied tables.
+The archive contains estimates for the 1,992-gene tissue network, 35 candidates and five expression comparisons per candidate. The scripts read stored effects, P values and FDR values and rebuild candidate summaries; they do not refit the upstream statistical models.
 
 ## Requirements
 
-Python **3.10 or later**, using the standard library only. No package installation or data download is required for the checks below. Local reconstruction checks used Python 3.13.5 on Linux. The workflow in `.github/workflows/verify.yml` checks the repository with Python 3.10 and 3.13.
+Python **3.10 or later**. Only the Python standard library is used.
 
-## Quick start
+## Run
 
-From the repository root:
+Download this repository and obtain the manuscript's Additional file 4. From the repository root, run:
+
+```bash
+python scripts/check_archive.py "/path/to/ECM1_Candidate_Selection_Complete_Package.zip"
+```
+
+To save a verification report:
+
+```bash
+python scripts/check_archive.py "/path/to/ECM1_Candidate_Selection_Complete_Package.zip" --json-report local_reports/reconstruction.json
+```
+
+The checker validates the archive against the fixed SHA-256 manifest, verifies that its scripts match the repository copies, and rebuilds the summaries in a temporary directory. It compares CS1, CS3, CS5 and the numerical-check JSON with the saved files. The supplied archive remains unchanged. Existing report files are not overwritten.
+
+An alternative is to extract Additional file 4 and place its contents directly under `candidate_selection/`. Once that directory contains `Source_Data/`, `Audit/`, `Scripts/` and `PACKAGE_MANIFEST.tsv`, run:
 
 ```bash
 python scripts/check_reconstruction.py
 ```
 
-This command verifies the candidate package, runs the supplied reconstruction script in a temporary copy and compares the generated files with the saved summaries. The distributed input files are left unchanged. A successful run reports the three matching tables and the numerical-check JSON.
+## Repository contents
 
-To save a machine-readable test report:
-
-```bash
-python scripts/check_reconstruction.py --json-report local_reports/reconstruction.json
-```
-
-To check the original candidate-package checksums only:
-
-```bash
-python candidate_selection/Scripts/verify_package.py
-```
-
-## Files
-
-| Location | Contents |
+| Path | Purpose |
 | --- | --- |
-| `candidate_selection/Source_Data/` | 12 CSV files: nine saved input tables and three derived summaries |
-| `candidate_selection/Scripts/rebuild_selection_tables.py` | Original code that rebuilds CS1, CS3 and CS5 |
+| `candidate_selection/Scripts/rebuild_selection_tables.py` | Original reconstruction code for CS1, CS3 and CS5 |
 | `candidate_selection/Scripts/verify_package.py` | Original package checksum checker |
-| `candidate_selection/FILE_INDEX.tsv` | File descriptions, row counts and manuscript table/figure links |
-| `candidate_selection/Audit/` | Source locations, source hashes and recorded numerical checks |
-| `scripts/check_reconstruction.py` | Non-destructive reconstruction and comparison wrapper |
-| `docs/SCOPE_AND_PROVENANCE.md` | Analysis boundaries and source-package identity |
-| `.github/workflows/verify.yml` | Checksum and reconstruction checks for GitHub Actions |
+| `candidate_selection/PACKAGE_MANIFEST.tsv` | Expected file sizes and SHA-256 hashes for Additional file 4 |
+| `scripts/check_archive.py` | Validates and checks the supplied archive in a temporary directory |
+| `scripts/check_reconstruction.py` | Checks an extracted candidate package without modifying it |
+| `docs/ADDITIONAL_FILE_4_INDEX.tsv` | Inventory of the input package and corresponding manuscript tables |
+| `docs/SCOPE_AND_PROVENANCE.md` | Source-package identity and analysis scope |
+| `verification/local_verification.json` | Local reconstruction results and output hashes |
 
-The accompanying CS1–CS8 workbook is supplied as **Additional file 3**. Sample information and statistical methods are in **Additional file 2**. The broader statistical source tables are in **Additional file 5**.
+## Outputs
 
-## Interpretation of the input tables
+- **CS1:** candidate topology and rank stability, 35 rows.
+- **CS3:** current expression estimates and joint-expression criteria, 35 rows.
+- **CS5:** earlier and current candidate classifications, 35 rows.
 
-`T01b_Cross_source_expression_effects.csv` contains the current estimates. Human effects compare chronic with acute ACL tissue; mouse effects compare postoperative day 14 with day 1 in four sorted populations. Earlier estimates are retained in separate input files, and CS5 compares their candidate classifications with the current estimates.
+The CS1–CS8 workbook is supplied in Additional file 3. Clinical sampling and statistical methods are in Additional file 2. Statistical source tables for the other manuscript analyses are in Additional file 5.
 
-The human contrast uses the five-acute/three-chronic allocation described in Additional file 2, CS-M5–CS-M7 and Tables CL2–CL3. Those sections document its demographic reconstruction and linked injury-time discrepancies. The four mouse populations share four source pools, with two at each time point.
+## Interpretation
 
-## Repository status
+Human expression effects compare chronic with acute ACL tissue. Mouse effects compare postoperative day 14 with day 1 in four sorted populations. The four mouse populations share four source pools, two per time point. The five-acute/three-chronic human allocation and its demographic reconstruction are documented in Additional file 2, CS-M5–CS-M7 and Tables CL2–CL3. Earlier and current estimates are kept in separate source tables.
 
-This repository is maintained at `ciawufengmd/ecm1-acl-candidate-selection` and is currently private. A public release and reuse licence will be specified after author review. The code covers the candidate summaries described above.
+## Availability
+
+The repository is currently private. No public release or reuse licence has been assigned. A public code-availability statement should be added to the manuscript after the release and data-access details have been confirmed.

@@ -1,0 +1,21 @@
+path	record_type	data_rows	purpose	manuscript_link
+Source_Data/06_GENE_LEVEL_VGK_ALL_WITH_ROBUSTNESS.csv	saved_input	1992	Network metrics, threshold sensitivity and 24 leave-one-subject-out ranks	CS1; CS7; Figure 2A
+Source_Data/09_GENE_LEVEL_ROBUST_CANDIDATE_UNION.csv	saved_input	35	Saved 35-gene candidate union	CS1
+Source_Data/CS1_Candidate35_topology.csv	derived_summary	35	Candidate topology and stability summary	CS1
+Source_Data/CS3_Current35_summary.csv	derived_summary	35	Current model effects, estimation status and joint-expression criteria	CS3; Figure 2B
+Source_Data/CS5_Version_reconciliation.csv	derived_summary	35	Historical and current expression classifications	CS5
+Source_Data/FINAL_CANDIDATE_CONVERGENCE_MATRIX.csv	saved_input	6	Historical six-candidate comparison	CS-M2; historical selection record
+Source_Data/POSTHOC_35GENE_STAGE1_STAGE3_STAGE4_MATRIX.csv	saved_input	35	Historical all-35 expression matrix	CS4; CS5
+Source_Data/T01a_Candidate_panel.csv	saved_input	35	Candidate membership and focused six-candidate subset	CS1; Figure 2
+Source_Data/T01b_Cross_source_expression_effects.csv	saved_input	175	Current 35 by 5 expression comparisons	CS2; CS3; Figure 2B
+Source_Data/T02a_Candidate_rank_bootstrap.csv	saved_input	35	Separate 100-bootstrap rank summary	CS8; Figure S1
+Source_Data/T02b_All_network_gene_ranks.csv	saved_input	1992	Current full 1,992-gene network ranks	CS7; Figure 2A
+Source_Data/candidate_effects.csv	saved_input	175	Stored expression input used for numeric correspondence checks	Figure 2B; NUMERIC_QA
+Scripts/rebuild_selection_tables.py	code		Reconstruct CS1, CS3 and CS5 from saved inputs	Candidate-selection summaries
+Scripts/verify_package.py	code		Check release file hashes	Package integrity
+Audit/SOURCE_MANIFEST.csv	provenance	12	Original CSV archive locations and hashes	Source_Data
+Audit/SOURCE_MANIFEST.json	provenance	12	JSON representation of the same source manifest	Source_Data
+Audit/NUMERIC_QA.json	numeric_check		Rank, estimate and classification checks	Candidate-selection summaries
+Audit/RECONSTRUCTION_CHECK.json	execution_check		Earlier script execution and file comparison	Rebuild validation
+README.md	documentation		Contents, table links and run instructions	Additional file 4
+PACKAGE_MANIFEST.tsv	checksum_manifest		SHA-256 and file sizes for this release	Distributed files

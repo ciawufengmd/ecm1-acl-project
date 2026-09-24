@@ -1,0 +1,20 @@
+# Local execution outputs
+local_reports/
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Local credentials and editor files
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Keep author-only publication drafts outside this repository
+author_only/
